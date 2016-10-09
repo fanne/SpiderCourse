@@ -75,7 +75,7 @@ def getVideoList():
     imooc_url = r'http://www.imooc.com'
     #url_in = raw_input('input url:')
     #url_text = requests.get(url_in).text
-    url_text = requests.get(r'http://www.imooc.com/view/37').text
+    url_text = requests.get(r'http://www.imooc.com/view/175').text
     url_soup = BeautifulSoup(url_text,'lxml')
     print url_soup
     pro_title = url_soup.h2.text

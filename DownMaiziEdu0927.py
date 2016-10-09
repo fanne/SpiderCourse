@@ -81,7 +81,7 @@ def getVideoList():
     login.startLogin()
 
 
-    my_url = r'http://www.maiziedu.com/course/620/'
+    my_url = r'http://www.maiziedu.com/course/851/'
 
 
 

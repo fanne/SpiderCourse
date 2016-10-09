@@ -12,7 +12,7 @@ import string
 ##打印出各个子目录，拷贝公众号图片到各个子目录
 
 
-gongzhonghao = u'D:\\360Tongbu\微信公众号\GirlsOps公众号\girlsops.jpg'
+gongzhonghao = u'd:\\360Tongbu\微信公众号\GirlsOps公众号\girlsops.jpg'
 rootDir = u'E:\各大网站视频教程\麦子学院二期'
 
 
