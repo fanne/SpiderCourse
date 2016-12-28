@@ -5,14 +5,15 @@ __Date__ = "2016-10-08 15:23"
 __Author__ = 'eyu Fanne'
 
 ###删除莫烦视频内容代码中的一些链接内容
+###匹配删除行，并写回原文件
 
 import os
 import re
 import shutil
-videoDir = u'H:\莫烦python'
+videoDir = r'G:\tutorials'
 
 ###多行匹配
-comment = re.compile(r'^#.*pythontutorial',re.DOTALL)
+comment = re.compile(r'^#.*tutorials/',re.DOTALL)
 
 
 def delVideoUrl(pyFile):
@@ -28,8 +29,19 @@ def delVideoUrl(pyFile):
         os.rename('%s_new' %pyFile,pyFile)
 
 
-for root,dirs,files in os.walk(videoDir):
-    for videofile in files:
-        videofile = os.path.join(root,videofile)
-        delVideoUrl(videofile)
+
+
+
+if __name__ == '__main__':
+    print 'aaaaddd'
+    print videoDir
+    for root,dirs,files in os.walk(videoDir):
+        print 'aaa'
+        print root
+        print dirs
+        print files
+        for videofile in files:
+            videofile = os.path.join(root,videofile)
+            print videofile
+            delVideoUrl(videofile)
 

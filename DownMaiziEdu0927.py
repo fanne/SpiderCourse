@@ -19,7 +19,7 @@ plays = ctypes.windll.kernel32
 
 maizi_url = r'http://www.maiziedu.com'
 basedir = u'e:\各大网站视频教程'
-CourseFrom = u'麦子学院'
+CourseFrom = u'麦子学院二期'
 
 
 
@@ -81,7 +81,7 @@ def getVideoList():
     login.startLogin()
 
 
-    my_url = r'http://www.maiziedu.com/course/851/'
+    my_url = r'http://www.maiziedu.com/course/230/'
 
 
 
@@ -91,6 +91,7 @@ def getVideoList():
     print pro_title_list
     pro_title = pro_title.join(pro_title_list)
     pro_dir = basedir+'\\'+  CourseFrom +'\\' +pro_title
+    # pro_dir = basedir + '\\' + CourseFrom
     print pro_dir
     if not os.path.exists(pro_dir):
         os.makedirs(pro_dir)
@@ -125,7 +126,7 @@ def startDownVideo(mp4_url,video_save):
     urllib.urlretrieve(u'%s' %mp4_url,'%s.mp4' %video_save)
 
 def multiMan():
-    pool = multiprocessing.Pool(processes=4)
+    pool = multiprocessing.Pool(processes=2)
     for k,v in getVideoList().items():
         pool.apply_async(startDownVideo,(k,v,))
     pool.close()

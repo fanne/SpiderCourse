@@ -7,8 +7,8 @@ __Date__ = '2016/9/3'
 import os
 import re
 
-rootDir = u'F:\慕课大巴2'
-rmfile =[u'慕课大巴 - IT学习资源分享社区.url',u'教程目录及说明.txt']
+rootDir = u'I:\最终整理的文件目录结构'
+rmfile =[u'慕课大巴 - IT学习资源分享社区.url',u'教程目录及说明.txt',u'视频简介.txt']
 
 ##遍历打印目录下的文件
 ##匹配到rmfile后删除文件

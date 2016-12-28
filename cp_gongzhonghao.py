@@ -13,7 +13,7 @@ import string
 
 
 gongzhonghao = u'd:\\360Tongbu\微信公众号\GirlsOps公众号\girlsops.jpg'
-rootDir = u'E:\各大网站视频教程\麦子学院二期'
+rootDir = u'I:\最终整理的文件目录结构'
 
 
 for root,dirs,files in os.walk(rootDir):

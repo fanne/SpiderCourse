@@ -22,9 +22,13 @@ headers = {
             "Accept-Encoding":"gzip, deflate",
             "Accept-Language":"zh-CN,zh;q=0.8",
             "Connection":"keep-alive",
+            "Content-Length":"288",
+            "Content-Type":"application/x-www-form-urlencoded; charset=UTF-8",
             "Host":"www.imooc.com",
-            "User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36",
-            "X-Requested-With":"XMLHttpRequest"
+            "Origin":"http://www.imooc.com",
+            "Referer":"http://www.imooc.com/",
+            "User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36",
+            "X-Requested-With":"XMLHttpRequest",
         }
 
 
@@ -42,8 +46,9 @@ class imoocLogin(object):
     def startLogin(self): #执行登入操作
         login_text = requests.get(imooc_url).text
         login_soup = BeautifulSoup(login_text,'lxml')
+        print login_soup
         verify = login_soup.find_all('img',class_="verify-img")
-        #print "verify: %s" %verify
+        print "verify: %s" %verify
         if verify:
             for verify_data in verify:
                 verify_data = verify_data.get('src')
@@ -65,18 +70,18 @@ class imoocLogin(object):
                 "referer":"http://www.imooc.com"
             }
         s_login = login_session.post(self.loginurl,data=login_data,headers=headers)
-        # print(s_login)
-        # print s_login.json()
+        print s_login.status
+        print s_login.json()
         # print type(s_login.json())
-        # for k,v in s_login.json().items():
-        #     print k,v
+        for k,v in s_login.json().items():
+            print k,v
 
 def getVideoList():
     video_dict = {}
     imooc_url = r'http://www.imooc.com'
     #url_in = raw_input('input url:')
     #url_text = requests.get(url_in).text
-    url_text = requests.get(r'http://www.imooc.com/learn/177').text
+    url_text = requests.get(r'http://www.imooc.com/learn/736').text
     url_soup = BeautifulSoup(url_text,'lxml')
     # print url_soup
     pro_title = url_soup.h2.text
@@ -125,7 +130,7 @@ def getVideoList():
 
 def startDownVideo(url,title):
     print '%s,%s' %(title,url)
-    urllib.urlretrieve(url,'%s.mp4' %title)
+    # urllib.urlretrieve(url,'%s.mp4' %title)
 
 def multiMan():
     pool = multiprocessing.Pool(processes=4)
